@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input Tax Credit (ITC) Master Class - CGST Act, 2017</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter & JetBrains Mono -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        gst: {
+                            50: '#f0f4ff',
+                            100: '#e0e9fe',
+                            600: '#2563eb',
+                            800: '#1e40af',
+                            900: '#1e3a8a',
+                        },
+                        statute: {
+                            50: '#fffbeb',
+                            100: '#fef3c7',
+                            800: '#92400e',
+                            900: '#78350f'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+        .tab-active {
+            border-bottom: 3px solid #2563eb;
+            color: #2563eb;
+            font-weight: 700;
+        }
+        .statute-box {
+            background-color: #fffbeb;
+            border-left: 4px solid #f59e0b;
+        }
+        .pro-tip {
+            background-color: #f0fdf4;
+            border-left: 4px solid #22c55e;
+        }
+        .alert-warning {
+            background-color: #fef2f2;
+            border-left: 4px solid #ef4444;
+        }
+        /* Custom Scrollbars */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-blue-100 selection:text-blue-900">
+
+    <!-- Header / Navbar -->
+    <header class="sticky top-0 z-50 bg-slate-900 text-white shadow-md border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center space-x-3">
+                    <div class="p-2 bg-blue-600 rounded-lg text-white">
+                        <i class="fa-solid fa-scale-balanced text-xl"></i>
+                    </div>
+                    <div>
+                        <span class="font-extrabold text-lg sm:text-xl tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-indigo-200">ITC MasterGuide</span>
+                        <span class="hidden sm:inline-block text-xs bg-slate-800 text-slate-400 px-2 py-0.5 rounded ml-2 font-mono">CGST Act 2017</span>
+                    </div>
+                </div>
+                <nav class="hidden md:flex space-x-6 text-sm font-medium text-slate-300">
+                    <a href="#overview" class="hover:text-white transition">Overview</a>
+                    <a href="#statutes" class="hover:text-white transition">Statutory Rules</a>
+                    <a href="#blocked" class="hover:text-white transition">Blocked Credit Sec 17(5)</a>
+                    <a href="#utilization" class="hover:text-white transition">Rule 88A Offset</a>
+                    <a href="#examples" class="hover:text-white transition">Worked Examples</a>
+                    <a href="#calculators" class="hover:text-white transition">Interactive Tools</a>
+                </nav>
+                <div class="flex items-center space-x-3">
+                    <button onclick="window.print()" class="px-3 py-1.5 text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-200 rounded-lg transition border border-slate-700 flex items-center gap-1.5">
+                        <i class="fa-solid fa-print"></i> Print Guide
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sub-Navbar Mobile Navigation -->
+    <div class="md:hidden bg-slate-800 text-slate-300 text-xs flex overflow-x-auto py-2 px-4 space-x-4 border-b border-slate-700">
+        <a href="#overview" class="whitespace-nowrap hover:text-white">Overview</a>
+        <a href="#statutes" class="whitespace-nowrap hover:text-white">Statutes</a>
+        <a href="#blocked" class="whitespace-nowrap hover:text-white">Sec 17(5)</a>
+        <a href="#utilization" class="whitespace-nowrap hover:text-white">Utilization</a>
+        <a href="#examples" class="whitespace-nowrap hover:text-white">Examples</a>
+        <a href="#calculators" class="whitespace-nowrap hover:text-white">Calculators</a>
+    </div>
+
+    <!-- Main Container -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-12">
+
+        <!-- HERO SECTION -->
+        <section class="bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 rounded-2xl p-6 sm:p-10 text-white shadow-xl relative overflow-hidden">
+            <div class="absolute -right-10 -bottom-10 opacity-10 text-9xl font-extrabold select-none text-white">GST</div>
+            <div class="relative z-10 max-w-3xl space-y-4">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-blue-500/20 text-blue-300 border border-blue-500/30">
+                    <i class="fa-solid fa-book-bookmark"></i> Legal & Statutory Tax Compendium
+                </span>
+                <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight">
+                    Input Tax Credit (ITC) under GST
+                </h1>
+                <p class="text-slate-300 text-base sm:text-lg leading-relaxed">
+                    Input Tax Credit is the backbone of the Goods and Services Tax system, designed to mitigate the **cascading effect of taxes** (tax on tax) and facilitate a seamless flow of credit across the supply chain.
+                </p>
+                <div class="flex flex-wrap gap-4 pt-2 text-xs sm:text-sm font-medium">
+                    <div class="flex items-center gap-2 bg-slate-800/80 px-3 py-2 rounded-lg border border-slate-700/50">
+                        <i class="fa-solid fa-check-circle text-emerald-400"></i> Sec 16 Eligibility
+                    </div>
+                    <div class="flex items-center gap-2 bg-slate-800/80 px-3 py-2 rounded-lg border border-slate-700/50">
+                        <i class="fa-solid fa-ban text-rose-400"></i> Sec 17(5) Blocked Credit
+                    </div>
+                    <div class="flex items-center gap-2 bg-slate-800/80 px-3 py-2 rounded-lg border border-slate-700/50">
+                        <i class="fa-solid fa-arrows-split-up-and-left text-amber-400"></i> Rule 88A Offset Logic
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 1: CORE CONCEPT & INTERACTIVE TAX CHAIN -->
+        <section id="overview" class="bg-white rounded-xl p-6 sm:p-8 shadow-sm border border-slate-200 space-y-6">
+            <div class="border-b border-slate-200 pb-4">
+                <h2 class="text-2xl font-bold text-slate-900 flex items-center gap-2">
+                    <span class="flex items-center justify-center w-8 h-8 bg-blue-100 text-blue-700 rounded-lg text-sm font-bold">1</span>
+                    Core Concept & Cascading Tax Elimination
+                </h2>
+                <p class="text-slate-600 text-sm mt-1">Understanding how ITC allows businesses to set off output tax liabilities against taxes paid on procurements.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="space-y-4">
+                    <h3 class="font-semibold text-slate-800 text-lg">What is Input Tax Credit?</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Under Section 2(62) of the CGST Act, **"Input Tax"** in relation to a registered person means the Central Tax (CGST), State Tax (SGST), Integrated Tax (IGST), or Union Territory Tax (UTGST) charged on any supply of goods or services made to him.
+                    </p>
+                    <div class="statute-box p-4 rounded-r-lg text-sm">
+                        <div class="font-bold text-statute-900 mb-1 flex items-center gap-1.5">
+                            <i class="fa-solid fa-gavel"></i> Fundamental Principle
+                        </div>
+                        <p class="text-statute-800">
+                            A registered taxable person pays tax only on the <strong>Value Added</strong> at their stage, as credit for tax paid at the previous stage is available to set off against output liability.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bg-slate-50 p-5 rounded-xl border border-slate-200">
+                    <h3 class="font-semibold text-slate-800 text-lg mb-3">Without ITC vs With ITC</h3>
+                    <div class="space-y-3 text-xs sm:text-sm">
+                        <div class="p-3 bg-red-50 border border-red-200 rounded-lg">
+                            <span class="font-bold text-red-800 block mb-1">Pre-GST / Without Credit (Cascading Tax)</span>
+                            <p class="text-red-700">Tax paid on inputs becomes part of the product cost. Subsequent tax is calculated on the total cost including previous tax $\rightarrow$ <strong>Tax on Tax</strong>.</p>
+                        </div>
+                        <div class="p-3 bg-emerald-50 border border-emerald-200 rounded-lg">
+                            <span class="font-bold text-emerald-800 block mb-1">Under GST / With ITC (Continuous Chain)</span>
+                            <p class="text-emerald-700">Tax paid on inputs is claimed as credit in the Electronic Credit Ledger. Net GST payable = Output Tax minus Input Tax Credit.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Interactive Value Chain Simulator -->
+            <div class="mt-8 pt-6 border-t border-slate-200">
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 gap-2">
+                    <div>
+                        <h3 class="font-bold text-slate-900 text-lg">Interactive Value Chain Simulator</h3>
+                        <p class="text-xs text-slate-500">Adjust the GST rate to see how ITC neutralizes tax cascading across stages.</p>
+                    </div>
+                    <div class="flex items-center gap-2 bg-slate-100 p-1.5 rounded-lg border border-slate-200 text-xs">
+                        <label for="gstRateSelect" class="font-semibold text-slate-700">GST Rate:</label>
+                        <select id="gstRateSelect" onchange="calculateChain()" class="bg-white border border-slate-300 rounded px-2 py-1 font-semibold text-blue-700 outline-none focus:ring-2 focus:ring-blue-500">
+                            <option value="0.05">5%</option>
+                            <option value="0.12">12%</option>
+                            <option value="0.18" selected>18%</option>
+                            <option value="0.28">28%</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-4" id="chainContainer">
+                    <!-- Dynamic rendering via JS -->
+                </div>
+
+                <div class="mt-4 p-4 bg-blue-50 border border-blue-200 rounded-xl flex flex-col sm:flex-row justify-between items-center text-sm font-semibold text-blue-900 gap-2">
+                    <span><i class="fa-solid fa-circle-info text-blue-600 mr-1"></i> Total Tax Collected by Govt across chain: <strong id="totalGovtTax" class="font-mono text-lg text-blue-700">₹0</strong></span>
+                    <span>Total Consumer Purchase Price: <strong id="finalConsumerPrice" class="font-mono text-lg text-blue-700">₹0</strong></span>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: KEY STATUTORY PROVISIONS -->
+        <section id="statutes" class="bg-white rounded-xl p-6 sm:p-8 shadow-sm border border-slate-200 space-y-8">
+            <div class="border-b border-slate-200 pb-4">
+                <h2 class="text-2xl font-bold text-slate-900 flex items-center gap-2">
+                    <span class="flex items-center justify-center w-8 h-8 bg-blue-100 text-blue-700 rounded-lg text-sm font-bold">2</span>
+                    Key Statutory Provisions (CGST Act, 2017)
+                </h2>
+                <p class="text-slate-600 text-sm mt-1">Detailed analysis of Sections 16, 17, 18, 49, and Section 16(4) time limits.</p>
+            </div>
+
+            <!-- Navigation Tabs for Statutes -->
+            <div class="flex border-b border-slate-200 overflow-x-auto text-sm font-medium">
+                <button onclick="switchStatuteTab('sec16')" id="tab-sec16" class="px-4 py-2.5 tab-active whitespace-nowrap">Section 16: Eligibility & Rules</button>
+                <button onclick="switchStatuteTab('sec17')" id="tab-sec17" class="px-4 py-2.5 text-slate-500 hover:text-slate-800 whitespace-nowrap">Section 17: Apportionment & Reversal</button>
+                <button onclick="switchStatuteTab('sec18')" id="tab-sec18" class="px-4 py-2.5 text-slate-500 hover:text-slate-800 whitespace-nowrap">Section 18: Special Circumstances</button>
+                <button onclick="switchStatuteTab('sec164')" id="tab-sec164" class="px-4 py-2.5 text-slate-500 hover:text-slate-800 whitespace-nowrap">Section 16(4): Time Limits</button>
+            </div>
+
+            <!-- Tab 1: Section 16 -->
+            <div id="content-sec16" class="space-y-6">
+                <div class="statute-box p-4 rounded-r-lg">
+                    <h3 class="font-bold text-amber-900 text-base">Section 16(1) - Fundamental Right to Credit</h3>
+                    <p class="text-xs sm:text-sm text-amber-800 mt-1">
+                        Every registered person shall be entitled to take credit of input tax charged on any supply of goods or services which are used or intended to be used in the <strong>course or furtherance of his business</strong>.
+                    </p>
+                </div>
+
+                <h4 class="font-bold text-slate-800 text-lg">The 5 Cumulative Conditions for Availing ITC [Section 16(2)]</h4>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl hover:shadow-md transition">
+                        <div class="text-blue-600 font-bold text-sm mb-1 flex items-center gap-2">
+                            <span class="w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center text-xs">1</span>
+                            Tax Invoice Possession
+                        </div>
+                        <p class="text-xs text-slate-600">Must possess a tax invoice, debit note, or prescribed tax-paying document issued by a registered supplier under Section 16(2)(a).</p>
+                    </div>
+                    <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl hover:shadow-md transition">
+                        <div class="text-blue-600 font-bold text-sm mb-1 flex items-center gap-2">
+                            <span class="w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center text-xs">2</span>
+                            Receipt of Goods/Services
+                        </div>
+                        <p class="text-xs text-slate-600">Goods or services must have been received by the registered person [Section 16(2)(b)]. Deemed receipt applicable for Bill-to-Ship-to model.</p>
+                    </div>
+                    <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl hover:shadow-md transition">
+                        <div class="text-blue-600 font-bold text-sm mb-1 flex items-center gap-2">
+                            <span class="w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center text-xs">3</span>
+                            Supplier Tax Payment
+                        </div>
+                        <p class="text-xs text-slate-600">Tax charged in respect of supply has been actually paid to the Government (either via cash or ITC utilization) under Section 16(2)(c).</p>
+                    </div>
+                    <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl hover:shadow-md transition">
+                        <div class="text-blue-600 font-bold text-sm mb-1 flex items-center gap-2">
+                            <span class="w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center text-xs">4</span>
+                            Filing of Returns
+                        </div>
+                        <p class="text-xs text-slate-600">The registered person must have furnished the return under Section 39 (Form GSTR-3B) under Section 16(2)(d).</p>
+                    </div>
+                    <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl hover:shadow-md transition">
+                        <div class="text-blue-600 font-bold text-sm mb-1 flex items-center gap-2">
+                            <span class="w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center text-xs">5</span>
+                            GSTR-2B Matching Sec 16(2)(aa)
+                        </div>
+                        <p class="text-xs text-slate-600">Details of invoice/debit note furnished by supplier in GSTR-1 and communicated to recipient in GSTR-2B (Strict 100% matching mandatory).</p>
+                    </div>
+                    <div class="p-4 bg-amber-50 border border-amber-200 rounded-xl hover:shadow-md transition">
+                        <div class="text-amber-800 font-bold text-sm mb-1 flex items-center gap-2">
+                            <i class="fa-solid fa-clock text-amber-600"></i>
+                            180-Day Payment Rule
+                        </div>
+                        <p class="text-xs text-amber-700">2nd Proviso to Sec 16(2): If recipient fails to pay supplier value + tax within 180 days from invoice date, ITC must be reversed with interest @18% p.a.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab 2: Section 17 -->
+            <div id="content-sec17" class="space-y-6 hidden">
+                <h3 class="font-bold text-slate-800 text-lg">Section 17: Apportionment of Credit & Common Credits</h3>
+                <div class="grid md:grid-cols-2 gap-4 text-xs sm:text-sm">
+                    <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl">
+                        <span class="font-bold text-slate-900 block mb-1">Section 17(1) - Business vs Personal Use</span>
+                        <p class="text-slate-600">Where goods or services are used partly for business and partly for other (personal) purposes, ITC is restricted to what is attributable to <strong>business purposes</strong>.</p>
+                    </div>
+                    <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl">
+                        <span class="font-bold text-slate-900 block mb-1">Section 17(2) - Taxable vs Exempt Supplies</span>
+                        <p class="text-slate-600">Where goods or services are used partly for taxable (including zero-rated) and partly for exempt supplies, credit is available ONLY for <strong>taxable supplies</strong>.</p>
+                    </div>
+                </div>
+
+                <div class="pro-tip p-4 rounded-xl text-xs sm:text-sm space-y-2">
+                    <div class="font-bold text-emerald-900 flex items-center gap-2">
+                        <i class="fa-solid fa-calculator"></i> Rule 42 & 43: Common Credit Reversal Mechanism
+                    </div>
+                    <p class="text-emerald-800">
+                        <strong>Rule 42 (Inputs & Input Services):</strong> Common credit attributable to exempt supplies ($D_1 = (E/F) \times C_2$) and non-business purposes ($D_2 = 5\% \times C_2$) must be added to output tax liability monthly in GSTR-3B.
+                    </p>
+                    <p class="text-emerald-800">
+                        <strong>Rule 43 (Capital Goods):</strong> Credit on capital goods used commonly is amortized over a useful life of 60 months (5 years) and reversed proportionally for exempt turnover each month.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Tab 3: Section 18 -->
+            <div id="content-sec18" class="space-y-6 hidden">
+                <h3 class="font-bold text-slate-800 text-lg">Section 18: Special Circumstances for ITC Availability</h3>
+                <div class="grid sm:grid-cols-2 gap-4 text-xs sm:text-sm">
+                    <div class="p-4 border border-blue-200 bg-blue-50/50 rounded-xl">
+                        <span class="font-bold text-blue-900 block mb-1">Sec 18(1)(a) - New Registration</span>
+                        <p class="text-slate-600">Person applying for GST within 30 days of becoming liable can claim ITC on inputs held in stock, semi-finished, and finished goods on day prior to liability.</p>
+                    </div>
+                    <div class="p-4 border border-blue-200 bg-blue-50/50 rounded-xl">
+                        <span class="font-bold text-blue-900 block mb-1">Sec 18(1)(c) - Switching from Composition to Regular</span>
+                        <p class="text-slate-600">Entitled to credit on inputs in stock and capital goods (reduced by 5% per quarter from invoice date) on day prior to becoming regular taxpayer.</p>
+                    </div>
+                    <div class="p-4 border border-blue-200 bg-blue-50/50 rounded-xl">
+                        <span class="font-bold text-blue-900 block mb-1">Sec 18(1)(d) - Exempt Supply Becoming Taxable</span>
+                        <p class="text-slate-600">Entitled to ITC on inputs in stock and capital goods (reduced by 5% per quarter) used exclusively for such supply on preceding day.</p>
+                    </div>
+                    <div class="p-4 border border-red-200 bg-red-50/50 rounded-xl">
+                        <span class="font-bold text-red-900 block mb-1">Sec 18(4) - Reversal on Switching to Composition</span>
+                        <p class="text-slate-600">When regular taxpayer shifts to composition scheme or taxable supply becomes exempt, ITC in stock/capital goods must be paid back in cash or reversed.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab 4: Section 16(4) -->
+            <div id="content-sec164" class="space-y-6 hidden">
+                <div class="alert-warning p-4 rounded-r-lg">
+                    <h3 class="font-bold text-red-900 text-base">Section 16(4) - Time Limit for Availing Input Tax Credit</h3>
+                    <p class="text-xs sm:text-sm text-red-800 mt-1 leading-relaxed">
+                        A registered person cannot claim ITC in respect of any invoice or debit note after the <strong>30th day of November</strong> following the end of the financial year to which such invoice/debit note pertains OR <strong>furnishing of the relevant Annual Return (GSTR-9)</strong>, whichever is earlier.
+                    </p>
+                </div>
+
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-3 text-xs sm:text-sm">
+                    <h4 class="font-bold text-slate-800">Timeline Example (FY 2023-24 Invoices):</h4>
+                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center bg-white p-3 rounded-lg border border-slate-200 gap-2">
+                        <span>Invoice Date: <strong>15th January 2024</strong> (FY 23-24)</span>
+                        <span class="text-red-600 font-bold">Cut-off Date: 30th November 2024 (in GSTR-3B of Oct/Nov)</span>
+                    </div>
+                    <p class="text-slate-500 italic">Note: Finance Act amendments aligned the timeline to 30th November (previously due date of September return).</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: BLOCKED CREDITS (SECTION 17(5)) -->
+        <section id="blocked" class="bg-white rounded-xl p-6 sm:p-8 shadow-sm border border-slate-200 space-y-6">
+            <div class="border-b border-slate-200 pb-4 flex flex-col md:flex-row justify-between md:items-center gap-4">
+                <div>
+                    <h2 class="text-2xl font-bold text-slate-900 flex items-center gap-2">
+                        <span class="flex items-center justify-center w-8 h-8 bg-rose-100 text-rose-700 rounded-lg text-sm font-bold">3</span>
+                        Blocked Credits - Section 17(5)
+                    </h2>
+                    <p class="text-slate-600 text-sm mt-1">Ineligible ITCs notwithstanding anything contained in Section 16(1) or Section 18(1).</p>
+                </div>
+                <!-- Search / Filter for Blocked Credits -->
+                <div class="w-full md:w-64">
+                    <input type="text" id="blockedSearch" onkeyup="filterBlockedCards()" placeholder="Search blocked items..." class="w-full px-3 py-1.5 text-xs border border-slate-300 rounded-lg focus:ring-2 focus:ring-rose-500 outline-none">
+                </div>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5" id="blockedGrid">
+                <!-- Card 1 -->
+                <div class="blocked-card p-5 bg-slate-50 border border-slate-200 rounded-xl hover:border-rose-300 transition hover:shadow-md space-y-2" data-keywords="motor vehicles cars seating capacity transport">
+                    <div class="flex items-center justify-between">
+                        <span class="p-2 bg-rose-100 text-rose-700 rounded-lg text-lg"><i class="fa-solid fa-car"></i></span>
+                        <span class="text-xs font-bold text-rose-600 bg-rose-50 px-2 py-0.5 rounded border border-rose-200">Sec 17(5)(a)</span>
+                    </div>
+                    <h3 class="font-bold text-slate-900 text-base">Motor Vehicles</h3>
+                    <p class="text-xs text-slate-600">Motor vehicles for transportation of persons having approved seating capacity of <strong>$\le$ 13 persons</strong> (including driver).</p>
+                    <div class="text-[11px] bg-emerald-50 text-emerald-800 p-2 rounded border border-emerald-200">
+                        <strong>Exceptions (Allowed if):</strong> Used for further supply of such vehicles, transportation of passengers, or imparting driving training.
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="blocked-card p-5 bg-slate-50 border border-slate-200 rounded-xl hover:border-rose-300 transition hover:shadow-md space-y-2" data-keywords="food outdoor catering beauty treatment health plastic surgery insurance">
+                    <div class="flex items-center justify-between">
+                        <span class="p-2 bg-rose-100 text-rose-700 rounded-lg text-lg"><i class="fa-solid fa-utensils"></i></span>
+                        <span class="text-xs font-bold text-rose-600 bg-rose-50 px-2 py-0.5 rounded border border-rose-200">Sec 17(5)(b)(i)</span>
+                    </div>
+                    <h3 class="font-bold text-slate-900 text-base">Food, Catering & Health</h3>
+                    <p class="text-xs text-slate-600">Food and beverages, outdoor catering, beauty treatment, health services, cosmetic and plastic surgery, life/health insurance.</p>
+                    <div class="text-[11px] bg-emerald-50 text-emerald-800 p-2 rounded border border-emerald-200">
+                        <strong>Exceptions:</strong> Allowed if used as element of taxable composite supply or where obligatory for employer under law.
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="blocked-card p-5 bg-slate-50 border border-slate-200 rounded-xl hover:border-rose-300 transition hover:shadow-md space-y-2" data-keywords="club membership fitness health centre">
+                    <div class="flex items-center justify-between">
+                        <span class="p-2 bg-rose-100 text-rose-700 rounded-lg text-lg"><i class="fa-solid fa-dumbbell"></i></span>
+                        <span class="text-xs font-bold text-rose-600 bg-rose-50 px-2 py-0.5 rounded border border-rose-200">Sec 17(5)(b)(ii)</span>
+                    </div>
+                    <h3 class="font-bold text-slate-900 text-base">Club & Fitness Memberships</h3>
+                    <p class="text-xs text-slate-600">Membership of a club, health, and fitness centre for employees or management.</p>
+                    <div class="text-[11px] bg-emerald-50 text-emerald-800 p-2 rounded border border-emerald-200">
+                        <strong>Exceptions:</strong> Allowed only if statutory obligation on employer to provide same to employees under any law.
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="blocked-card p-5 bg-slate-50 border border-slate-200 rounded-xl hover:border-rose-300 transition hover:shadow-md space-y-2" data-keywords="works contract immovable property construction building plant machinery">
+                    <div class="flex items-center justify-between">
+                        <span class="p-2 bg-rose-100 text-rose-700 rounded-lg text-lg"><i class="fa-solid fa-building-user"></i></span>
+                        <span class="text-xs font-bold text-rose-600 bg-rose-50 px-2 py-0.5 rounded border border-rose-200">Sec 17(5)(c) & (d)</span>
+                    </div>
+                    <h3 class="font-bold text-slate-900 text-base">Immovable Property Construction</h3>
+                    <p class="text-xs text-slate-600">Works contract services or goods/services received for construction of immovable property (on own account or business).</p>
+                    <div class="text-[11px] bg-emerald-50 text-emerald-800 p-2 rounded border border-emerald-200">
+                        <strong>Exceptions:</strong> Allowed for <strong>Plant & Machinery</strong>, or where works contract is input for further works contract service.
+                    </div>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="blocked-card p-5 bg-slate-50 border border-slate-200 rounded-xl hover:border-rose-300 transition hover:shadow-md space-y-2" data-keywords="personal consumption private use employees">
+                    <div class="flex items-center justify-between">
+                        <span class="p-2 bg-rose-100 text-rose-700 rounded-lg text-lg"><i class="fa-solid fa-user-shield"></i></span>
+                        <span class="text-xs font-bold text-rose-600 bg-rose-50 px-2 py-0.5 rounded border border-rose-200">Sec 17(5)(g)</span>
+                    </div>
+                    <h3 class="font-bold text-slate-900 text-base">Personal Consumption</h3>
+                    <p class="text-xs text-slate-600">Goods or services or both used for personal consumption of proprietor, partners, or directors.</p>
+                    <div class="text-[11px] bg-rose-50 text-rose-800 p-2 rounded border border-rose-200">
+                        <strong>No Exceptions:</strong> Strictly prohibited. Must be reversed if initially claimed.
+                    </div>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="blocked-card p-5 bg-slate-50 border border-slate-200 rounded-xl hover:border-rose-300 transition hover:shadow-md space-y-2" data-keywords="lost stolen written off destroyed samples free gifts">
+                    <div class="flex items-center justify-between">
+                        <span class="p-2 bg-rose-100 text-rose-700 rounded-lg text-lg"><i class="fa-solid fa-box-open"></i></span>
+                        <span class="text-xs font-bold text-rose-600 bg-rose-50 px-2 py-0.5 rounded border border-rose-200">Sec 17(5)(h)</span>
+                    </div>
+                    <h3 class="font-bold text-slate-900 text-base">Lost, Written Off or Free Gifts</h3>
+                    <p class="text-xs text-slate-600">Goods lost, stolen, destroyed, written off, or disposed of by way of gift or free samples.</p>
+                    <div class="text-[11px] bg-amber-50 text-amber-800 p-2 rounded border border-amber-200">
+                        <strong>Note:</strong> Promotional schemes like "Buy 1 Get 1 Free" follow composite/mixed supply rules rather than direct 17(5)(h) blocking.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: ORDER OF ITC UTILIZATION (RULE 88A & SEC 49/49A/49B) -->
+        <section id="utilization" class="bg-white rounded-xl p-6 sm:p-8 shadow-sm border border-slate-200 space-y-6">
+            <div class="border-b border-slate-200 pb-4">
+                <h2 class="text-2xl font-bold text-slate-900 flex items-center gap-2">
+                    <span class="flex items-center justify-center w-8 h-8 bg-blue-100 text-blue-700 rounded-lg text-sm font-bold">4</span>
+                    Order of ITC Utilization (Rule 88A)
+                </h2>
+                <p class="text-slate-600 text-sm mt-1">Mandatory statutory hierarchy for setting off Input Tax Credit against GST Output Liabilities.</p>
+            </div>
+
+            <!-- Mandatory Rule Callout -->
+            <div class="p-4 bg-indigo-50 border-l-4 border-indigo-600 rounded-r-xl text-xs sm:text-sm text-indigo-950 space-y-1">
+                <span class="font-bold flex items-center gap-1.5"><i class="fa-solid fa-triangle-exclamation text-indigo-600"></i> Golden Rule of Utilization:</span>
+                <p>
+                    <strong>IGST Credit must be completely exhausted first</strong> before using CGST or SGST credit. Once IGST credit is zero, IGST liability (if any remaining) can be paid by CGST, then SGST. Cross-utilization between CGST and SGST is <strong>STRICTLY PROHIBITED</strong>.
+                </p>
+            </div>
+
+            <!-- Utilization Matrix Table -->
+            <div class="overflow-x-auto">
+                <table class="w-full text-left text-xs sm:text-sm border-collapse border border-slate-200 rounded-xl overflow-hidden">
+                    <thead class="bg-slate-900 text-white font-semibold">
+                        <tr>
+                            <th class="p-3 border border-slate-700">ITC Credit Type ↓</th>
+                            <th class="p-3 border border-slate-700">1st Set-off Output</th>
+                            <th class="p-3 border border-slate-700">2nd Set-off Output</th>
+                            <th class="p-3 border border-slate-700">3rd Set-off Output</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-200">
+                        <tr class="bg-blue-50/50">
+                            <td class="p-3 font-bold text-blue-900 border border-slate-200">IGST Credit</td>
+                            <td class="p-3 font-bold text-blue-700 border border-slate-200">IGST (100% first)</td>
+                            <td class="p-3 text-slate-700 border border-slate-200" colspan="2">
+                                CGST / SGST (In <strong>ANY ratio</strong> or proportion at taxpayer's option)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="p-3 font-bold text-emerald-900 border border-slate-200">CGST Credit</td>
+                            <td class="p-3 text-slate-700 border border-slate-200">CGST</td>
+                            <td class="p-3 text-slate-700 border border-slate-200">IGST</td>
+                            <td class="p-3 text-rose-600 font-bold bg-rose-50 border border-slate-200">SGST (BLOCKED <i class="fa-solid fa-xmark"></i>)</td>
+                        </tr>
+                        <tr>
+                            <td class="p-3 font-bold text-purple-900 border border-slate-200">SGST / UTGST Credit</td>
+                            <td class="p-3 text-slate-700 border border-slate-200">SGST / UTGST</td>
+                            <td class="p-3 text-slate-700 border border-slate-200">IGST</td>
+                            <td class="p-3 text-rose-600 font-bold bg-rose-50 border border-slate-200">CGST (BLOCKED <i class="fa-solid fa-xmark"></i>)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- SECTION 5: PRACTICAL WORKED EXAMPLES -->
+        <section id="examples" class="bg-white rounded-xl p-6 sm:p-8 shadow-sm border border-slate-200 space-y-6">
+            <div class="border-b border-slate-200 pb-4">
+                <h2 class="text-2xl font-bold text-slate-900 flex items-center gap-2">
+                    <span class="flex items-center justify-center w-8 h-8 bg-blue-100 text-blue-700 rounded-lg text-sm font-bold">5</span>
+                    Practical Worked Examples
+                </h2>
+                <p class="text-slate-600 text-sm mt-1">Numerical case studies for value addition and Rule 42 proportionate reversal.</p>
+            </div>
+
+            <!-- Example Case 1: Standard Manufacturing Value Addition -->
+            <div class="border border-slate-200 rounded-xl p-5 space-y-4 bg-slate-50/50">
+                <div class="flex items-center justify-between border-b border-slate-200 pb-2">
+                    <h3 class="font-bold text-slate-900 text-base">Case 1: Standard Manufacturing & Distribution Chain</h3>
+                    <span class="text-xs bg-blue-100 text-blue-800 font-bold px-2 py-1 rounded">Intra-State Supply (CGST 9% + SGST 9%)</span>
+                </div>
+
+                <div class="text-xs sm:text-sm text-slate-700 space-y-2">
+                    <p><strong>Scenario:</strong> Manufacturer M buys raw materials for ₹1,00,000 (+ 18% GST = ₹18,000). M incurs manufacturing costs & profit margin of ₹50,000 (Value Addition). M sells finished goods to Wholesaler W for ₹1,50,000 (+ 18% GST). W sells to Retailer R at ₹1,80,000 (+ 18% GST).</p>
+                </div>
+
+                <div class="overflow-x-auto">
+                    <table class="w-full text-xs text-left bg-white border border-slate-200 rounded-lg">
+                        <thead class="bg-slate-100 text-slate-800 font-semibold">
+                            <tr>
+                                <th class="p-2 border">Stage</th>
+                                <th class="p-2 border">Sale Price</th>
+                                <th class="p-2 border">Output Tax (18%)</th>
+                                <th class="p-2 border">ITC Available</th>
+                                <th class="p-2 border">Net Cash Paid to Govt</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-200">
+                            <tr>
+                                <td class="p-2 border font-medium">Raw Material Supplier</td>
+                                <td class="p-2 border">₹1,00,000</td>
+                                <td class="p-2 border">₹18,000</td>
+                                <td class="p-2 border text-slate-400">₹0 (Assumed)</td>
+                                <td class="p-2 border font-bold text-emerald-700">₹18,000</td>
+                            </tr>
+                            <tr>
+                                <td class="p-2 border font-medium">Manufacturer (M)</td>
+                                <td class="p-2 border">₹1,50,000</td>
+                                <td class="p-2 border">₹27,000</td>
+                                <td class="p-2 border text-blue-700">₹18,000</td>
+                                <td class="p-2 border font-bold text-emerald-700">₹9,000 (27k - 18k)</td>
+                            </tr>
+                            <tr>
+                                <td class="p-2 border font-medium">Wholesaler (W)</td>
+                                <td class="p-2 border">₹1,80,000</td>
+                                <td class="p-2 border">₹32,400</td>
+                                <td class="p-2 border text-blue-700">₹27,000</td>
+                                <td class="p-2 border font-bold text-emerald-700">₹5,400 (32.4k - 27k)</td>
+                            </tr>
+                            <tr class="bg-slate-50 font-bold">
+                                <td class="p-2 border" colspan="4">Total Revenue Collected by Govt:</td>
+                                <td class="p-2 border text-blue-900 font-mono text-sm">₹32,400 (= 18% on Final Sale)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Example Case 2: Rule 42 Proportionate Reversal -->
+            <div class="border border-slate-200 rounded-xl p-5 space-y-4 bg-slate-50/50">
+                <div class="flex items-center justify-between border-b border-slate-200 pb-2">
+                    <h3 class="font-bold text-slate-900 text-base">Case 2: Rule 42 Common Credit Reversal Calculation</h3>
+                    <span class="text-xs bg-amber-100 text-amber-800 font-bold px-2 py-1 rounded">Common Credit Formula</span>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-4 text-xs sm:text-sm">
+                    <div class="bg-white p-3 rounded-lg border border-slate-200 space-y-1">
+                        <span class="font-bold text-slate-800 block">Given Monthly Turnover Data:</span>
+                        <ul class="list-disc list-inside text-slate-600 space-y-0.5">
+                            <li>Total Turnover ($F$): <strong>₹1,00,00,000</strong></li>
+                            <li>Exempt Supplies Turnover ($E$): <strong>₹20,00,000</strong> (20%)</li>
+                            <li>Taxable Supplies Turnover: <strong>₹80,00,000</strong> (80%)</li>
+                            <li>Total Input Tax Credit ($T$): <strong>₹5,00,000</strong></li>
+                        </ul>
+                    </div>
+                    <div class="bg-white p-3 rounded-lg border border-slate-200 space-y-1">
+                        <span class="font-bold text-slate-800 block">Credit Breakup ($T$):</span>
+                        <ul class="list-disc list-inside text-slate-600 space-y-0.5">
+                            <li>$T_1$ (Exclusively personal): ₹20,000</li>
+                            <li>$T_2$ (Exclusively exempt): ₹30,000</li>
+                            <li>$T_3$ (Blocked Sec 17(5)): ₹50,000</li>
+                            <li>$T_4$ (Exclusively taxable): ₹3,000,000</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="bg-blue-50 p-4 rounded-lg border border-blue-200 text-xs sm:text-sm space-y-2">
+                    <span class="font-bold text-blue-900 block">Step-by-Step Mathematical Calculation:</span>
+                    <ol class="list-decimal list-inside text-blue-950 space-y-1 font-mono">
+                        <li>Common Credit $C_2 = T - (T_1 + T_2 + T_3 + T_4) = 5,00,000 - 4,00,000 = \mathbf{₹1,00,000}$</li>
+                        <li>Exempt Proportion Reversal ($D_1$) = $(E / F) \times C_2 = (20,00,000 / 1,00,00,000) \times 1,00,000 = \mathbf{₹20,000}$</li>
+                        <li>Non-business Reversal ($D_2$) = $5\% \times C_2 = 5\% \times 1,00,000 = \mathbf{₹5,000}$</li>
+                        <li class="font-bold text-emerald-800">Net Eligible Common Credit ($C_3$) = $C_2 - (D_1 + D_2) = 1,00,000 - 25,000 = \mathbf{₹75,000}$</li>
+                    </ol>
+                    <p class="text-[11px] text-blue-800 font-sans italic mt-1">Amount to be added to Output Tax Liability in GSTR-3B = $D_1 + D_2 = \mathbf{₹25,000}$.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 6: INTERACTIVE CALCULATORS & TOOLS -->
+        <section id="calculators" class="bg-white rounded-xl p-6 sm:p-8 shadow-sm border border-slate-200 space-y-8">
+            <div class="border-b border-slate-200 pb-4">
+                <h2 class="text-2xl font-bold text-slate-900 flex items-center gap-2">
+                    <span class="flex items-center justify-center w-8 h-8 bg-blue-100 text-blue-700 rounded-lg text-sm font-bold">6</span>
+                    Interactive Compliance Tools
+                </h2>
+                <p class="text-slate-600 text-sm mt-1">Net GST Payable Calculator with Rule 88A algorithm & Ineligible Credit Checker.</p>
+            </div>
+
+            <!-- TOOL 1: NET GST PAYABLE CALCULATOR -->
+            <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200 space-y-6">
+                <div class="flex items-center gap-2 border-b border-slate-200 pb-3">
+                    <i class="fa-solid fa-calculator text-blue-600 text-xl"></i>
+                    <div>
+                        <h3 class="font-bold text-slate-900 text-lg">Net GST Liability & Rule 88A Utilization Calculator</h3>
+                        <p class="text-xs text-slate-500">Inputs Output tax liabilities and available Input Tax Credit to calculate optimal tax offset and cash payable.</p>
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-6">
+                    <!-- Column 1: Output Liabilities -->
+                    <div class="space-y-3 bg-white p-4 rounded-xl border border-slate-200">
+                        <h4 class="font-bold text-slate-800 text-sm flex items-center gap-2 border-b pb-2">
+                            <span class="w-3 h-3 bg-red-500 rounded-full"></span> Output Tax Liability
+                        </h4>
+                        <div class="space-y-2 text-xs">
+                            <div>
+                                <label for="outIgst" class="block text-slate-600 font-medium mb-1">Output IGST (₹)</label>
+                                <input type="number" id="outIgst" value="50000" oninput="calculateNetGst()" class="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none font-mono">
+                            </div>
+                            <div>
+                                <label for="outCgst" class="block text-slate-600 font-medium mb-1">Output CGST (₹)</label>
+                                <input type="number" id="outCgst" value="30000" oninput="calculateNetGst()" class="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none font-mono">
+                            </div>
+                            <div>
+                                <label for="outSgst" class="block text-slate-600 font-medium mb-1">Output SGST (₹)</label>
+                                <input type="number" id="outSgst" value="30000" oninput="calculateNetGst()" class="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none font-mono">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Column 2: Available ITC -->
+                    <div class="space-y-3 bg-white p-4 rounded-xl border border-slate-200">
+                        <h4 class="font-bold text-slate-800 text-sm flex items-center gap-2 border-b pb-2">
+                            <span class="w-3 h-3 bg-emerald-500 rounded-full"></span> Available Input Tax Credit (GSTR-2B)
+                        </h4>
+                        <div class="space-y-2 text-xs">
+                            <div>
+                                <label for="inIgst" class="block text-slate-600 font-medium mb-1">Input IGST Credit (₹)</label>
+                                <input type="number" id="inIgst" value="70000" oninput="calculateNetGst()" class="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none font-mono">
+                            </div>
+                            <div>
+                                <label for="inCgst" class="block text-slate-600 font-medium mb-1">Input CGST Credit (₹)</label>
+                                <input type="number" id="inCgst" value="20000" oninput="calculateNetGst()" class="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none font-mono">
+                            </div>
+                            <div>
+                                <label for="inSgst" class="block text-slate-600 font-medium mb-1">Input SGST Credit (₹)</label>
+                                <input type="number" id="inSgst" value="20000" oninput="calculateNetGst()" class="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none font-mono">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Calculation Results Output -->
+                <div class="bg-slate-900 text-white p-5 rounded-xl space-y-4">
+                    <h4 class="font-bold text-sm text-slate-300 border-b border-slate-800 pb-2 flex items-center justify-between">
+                        <span>Net GST Payable via Electronic Cash Ledger</span>
+                        <span class="text-xs bg-emerald-500/20 text-emerald-400 px-2 py-0.5 rounded border border-emerald-500/30">Rule 88A Compliant</span>
+                    </h4>
+
+                    <div class="grid grid-cols-3 gap-3 text-center">
+                        <div class="p-3 bg-slate-800/80 rounded-lg border border-slate-700">
+                            <span class="block text-xs text-slate-400 mb-1">Net Cash IGST</span>
+                            <span id="cashIgst" class="text-base sm:text-lg font-bold font-mono text-emerald-400">₹0</span>
+                        </div>
+                        <div class="p-3 bg-slate-800/80 rounded-lg border border-slate-700">
+                            <span class="block text-xs text-slate-400 mb-1">Net Cash CGST</span>
+                            <span id="cashCgst" class="text-base sm:text-lg font-bold font-mono text-emerald-400">₹0</span>
+                        </div>
+                        <div class="p-3 bg-slate-800/80 rounded-lg border border-slate-700">
+                            <span class="block text-xs text-slate-400 mb-1">Net Cash SGST</span>
+                            <span id="cashSgst" class="text-base sm:text-lg font-bold font-mono text-emerald-400">₹0</span>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row justify-between items-center text-xs text-slate-400 border-t border-slate-800 pt-3 gap-2">
+                        <span>Total Cash Liability: <strong id="totalCashPaid" class="text-white font-mono text-sm">₹0</strong></span>
+                        <span>Remaining Credit Carried Forward: <strong id="totalCreditCarried" class="text-blue-400 font-mono text-sm">₹0</strong></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TOOL 2: INELIGIBLE CREDIT DECISION TREE QUIZ -->
+            <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200 space-y-4">
+                <div class="flex items-center gap-2 border-b border-slate-200 pb-3">
+                    <i class="fa-solid fa-clipboard-question text-purple-600 text-xl"></i>
+                    <div>
+                        <h3 class="font-bold text-slate-900 text-lg">ITC Eligibility Decision Tree & Quiz</h3>
+                        <p class="text-xs text-slate-500">Test an invoice item to check whether credit is eligible or blocked under Section 17(5).</p>
+                    </div>
+                </div>
+
+                <div class="bg-white p-5 rounded-xl border border-slate-200 space-y-4 text-xs sm:text-sm">
+                    <div>
+                        <label for="quizItem" class="block font-semibold text-slate-800 mb-2">Select procurement category to evaluate:</label>
+                        <select id="quizItem" onchange="evaluateEligibility()" class="w-full sm:w-auto px-4 py-2 border border-slate-300 rounded-lg font-medium text-slate-800 focus:ring-2 focus:ring-purple-500 outline-none">
+                            <option value="">-- Choose Procurement Item --</option>
+                            <option value="car_sales">Motor Car purchased by a Car Dealer for resale</option>
+                            <option value="car_corp">Motor Car (5 seats) purchased by a Tech Company for CEO</option>
+                            <option value="food_statutory">Catering services provided in factory (Mandatory by Factories Act)</option>
+                            <option value="food_party">Catering for corporate annual party</option>
+                            <option value="building_factory">Civil construction of factory building (immovable property)</option>
+                            <option value="plant_machinery">Purchase and installation of heavy plant and machinery</option>
+                            <option value="gift_samples">Free sample goods distributed to distributors</option>
+                        </select>
+                    </div>
+
+                    <div id="quizResult" class="hidden p-4 rounded-xl space-y-2">
+                        <!-- Dynamic Result Container -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="text-center text-xs text-slate-500 py-6 border-t border-slate-200 space-y-2">
+            <p><strong>Disclaimer:</strong> This guide is for educational and informational purposes based on the Central Goods and Services Tax (CGST) Act, 2017 and relevant rules as amended up to date. It is advised to double check the statutes for specific legal advisory.</p>
+            <p>© Krishnenthu Raja Mintoo P.S., NACIN Cochin</p>
+        </footer>
+
+    </main>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // --- 1. VALUE CHAIN SIMULATOR ---
+        function calculateChain() {
+            const rate = parseFloat(document.getElementById('gstRateSelect').value);
+            const container = document.getElementById('chainContainer');
+            
+            const stages = [
+                { title: '1. Supplier', cost: 1000, margin: 0, desc: 'Extracts raw materials' },
+                { title: '2. Manufacturer', cost: 0, margin: 500, desc: 'Adds value & processing' },
+                { title: '3. Wholesaler', cost: 0, margin: 300, desc: 'Bulk distribution' },
+                { title: '4. Retailer', cost: 0, margin: 200, desc: 'Final consumer sale' }
+            ];
+
+            let html = '';
+            let prevSalePrice = 0;
+            let prevTax = 0;
+            let totalGovtTax = 0;
+
+            stages.forEach((stage, index) => {
+                let salePrice = 0;
+                if (index === 0) {
+                    salePrice = stage.cost;
+                } else {
+                    salePrice = prevSalePrice + stage.margin;
+                }
+
+                const outputTax = salePrice * rate;
+                const itcAvailable = index === 0 ? 0 : prevTax;
+                const netCashTax = outputTax - itcAvailable;
+                
+                totalGovtTax += netCashTax;
+                prevSalePrice = salePrice;
+                prevTax = outputTax;
+
+                html += `
+                    <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2 text-xs hover:border-blue-300 transition">
+                        <div class="font-bold text-slate-900 text-sm border-b border-slate-200 pb-1 flex justify-between items-center">
+                            <span>${stage.title}</span>
+                            <span class="text-[10px] text-slate-400">${stage.desc}</span>
+                        </div>
+                        <div class="space-y-1 text-slate-600">
+                            <div class="flex justify-between"><span>Base Value:</span> <span class="font-mono">₹${salePrice.toFixed(0)}</span></div>
+                            <div class="flex justify-between"><span>Output GST (${(rate*100)}%):</span> <span class="font-mono text-red-600">₹${outputTax.toFixed(0)}</span></div>
+                            <div class="flex justify-between"><span>Less ITC Claimed:</span> <span class="font-mono text-blue-600">₹${itcAvailable.toFixed(0)}</span></div>
+                            <div class="flex justify-between font-bold border-t border-slate-200 pt-1 text-slate-900">
+                                <span>Net GST Cash Paid:</span> <span class="font-mono text-emerald-700">₹${netCashTax.toFixed(0)}</span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+
+            container.innerHTML = html;
+            document.getElementById('totalGovtTax').innerText = '₹' + totalGovtTax.toFixed(0);
+            document.getElementById('finalConsumerPrice').innerText = '₹' + (prevSalePrice * (1 + rate)).toFixed(0);
+        }
+
+        // --- 2. STATUTE TAB SWITCHING ---
+        function switchStatuteTab(tabId) {
+            ['sec16', 'sec17', 'sec18', 'sec164'].forEach(id => {
+                document.getElementById('content-' + id).classList.add('hidden');
+                document.getElementById('tab-' + id).classList.remove('tab-active');
+                document.getElementById('tab-' + id).classList.add('text-slate-500');
+            });
+            document.getElementById('content-' + tabId).classList.remove('hidden');
+            document.getElementById('tab-' + tabId).classList.add('tab-active');
+            document.getElementById('tab-' + tabId).classList.remove('text-slate-500');
+        }
+
+        // --- 3. FILTER BLOCKED CREDITS CARDS ---
+        function filterBlockedCards() {
+            const query = document.getElementById('blockedSearch').value.toLowerCase();
+            const cards = document.querySelectorAll('.blocked-card');
+
+            cards.forEach(card => {
+                const keywords = card.getAttribute('data-keywords') + ' ' + card.innerText.toLowerCase();
+                if (keywords.includes(query)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // --- 4. RULE 88A NET GST CALCULATOR ---
+        function calculateNetGst() {
+            let outIgst = parseFloat(document.getElementById('outIgst').value) || 0;
+            let outCgst = parseFloat(document.getElementById('outCgst').value) || 0;
+            let outSgst = parseFloat(document.getElementById('outSgst').value) || 0;
+
+            let inIgst = parseFloat(document.getElementById('inIgst').value) || 0;
+            let inCgst = parseFloat(document.getElementById('inCgst').value) || 0;
+            let inSgst = parseFloat(document.getElementById('inSgst').value) || 0;
+
+            // Step 1: Set off IGST Credit against Output IGST
+            let igstUsedForIgst = Math.min(inIgst, outIgst);
+            outIgst -= igstUsedForIgst;
+            inIgst -= igstUsedForIgst;
+
+            // Step 2: Set off remaining IGST Credit against Output CGST & SGST (50-50 split for optimal utilization)
+            if (inIgst > 0) {
+                let igstUsedForCgst = Math.min(inIgst / 2, outCgst);
+                outCgst -= igstUsedForCgst;
+                inIgst -= igstUsedForCgst;
+
+                let igstUsedForSgst = Math.min(inIgst, outSgst);
+                outSgst -= igstUsedForSgst;
+                inIgst -= igstUsedForSgst;
+            }
+
+            // Step 3: Set off CGST Credit against Output CGST, then Output IGST
+            let cgstUsedForCgst = Math.min(inCgst, outCgst);
+            outCgst -= cgstUsedForCgst;
+            inCgst -= cgstUsedForCgst;
+
+            let cgstUsedForIgst = Math.min(inCgst, outIgst);
+            outIgst -= cgstUsedForIgst;
+            inCgst -= cgstUsedForIgst;
+
+            // Step 4: Set off SGST Credit against Output SGST, then Output IGST
+            let sgstUsedForSgst = Math.min(inSgst, outSgst);
+            outSgst -= sgstUsedForSgst;
+            inSgst -= sgstUsedForSgst;
+
+            let sgstUsedForIgst = Math.min(inSgst, outIgst);
+            outIgst -= sgstUsedForIgst;
+            inSgst -= sgstUsedForIgst;
+
+            // Update UI Outputs
+            document.getElementById('cashIgst').innerText = '₹' + Math.max(0, outIgst).toFixed(0);
+            document.getElementById('cashCgst').innerText = '₹' + Math.max(0, outCgst).toFixed(0);
+            document.getElementById('cashSgst').innerText = '₹' + Math.max(0, outSgst).toFixed(0);
+
+            const totalCash = Math.max(0, outIgst) + Math.max(0, outCgst) + Math.max(0, outSgst);
+            const totalRemainingCredit = Math.max(0, inIgst) + Math.max(0, inCgst) + Math.max(0, inSgst);
+
+            document.getElementById('totalCashPaid').innerText = '₹' + totalCash.toFixed(0);
+            document.getElementById('totalCreditCarried').innerText = '₹' + totalRemainingCredit.toFixed(0);
+        }
+
+        // --- 5. DECISION TREE QUIZ EVALUATOR ---
+        function evaluateEligibility() {
+            const item = document.getElementById('quizItem').value;
+            const resDiv = document.getElementById('quizResult');
+
+            if (!item) {
+                resDiv.classList.add('hidden');
+                return;
+            }
+
+            resDiv.classList.remove('hidden');
+
+            const results = {
+                'car_sales': {
+                    allowed: true,
+                    title: 'ELIGIBLE FOR ITC',
+                    statute: 'Section 17(5)(a)(A) Exception',
+                    desc: 'Motor vehicles purchased for further supply (resale) are explicitly EXEMPTED from credit blocking.'
+                },
+                'car_corp': {
+                    allowed: false,
+                    title: 'BLOCKED CREDIT (INELIGIBLE)',
+                    statute: 'Section 17(5)(a)',
+                    desc: 'Motor vehicles with seating capacity ≤ 13 persons used for corporate/executive transport are strictly blocked.'
+                },
+                'food_statutory': {
+                    allowed: true,
+                    title: 'ELIGIBLE FOR ITC',
+                    statute: 'Section 17(5)(b) Proviso',
+                    desc: 'Food/catering services are eligible because it is obligatory for the employer to provide them under the Factories Act.'
+                },
+                'food_party': {
+                    allowed: false,
+                    title: 'BLOCKED CREDIT (INELIGIBLE)',
+                    statute: 'Section 17(5)(b)(i)',
+                    desc: 'Outdoor catering for general corporate events/parties is blocked under Section 17(5)(b)(i).'
+                },
+                'building_factory': {
+                    allowed: false,
+                    title: 'BLOCKED CREDIT (INELIGIBLE)',
+                    statute: 'Section 17(5)(d)',
+                    desc: 'Goods or services received for construction of an immovable property (factory building) on own account are blocked.'
+                },
+                'plant_machinery': {
+                    allowed: true,
+                    title: 'ELIGIBLE FOR ITC',
+                    statute: 'Section 17(5)(c)/(d) Explanation',
+                    desc: 'Plant and Machinery is specifically EXCLUDED from immovable property restrictions. Credit is fully eligible.'
+                },
+                'gift_samples': {
+                    allowed: false,
+                    title: 'BLOCKED CREDIT / REVERSAL REQUIRED',
+                    statute: 'Section 17(5)(h)',
+                    desc: 'Goods disposed of by way of free gifts or samples are strictly blocked under Section 17(5)(h).'
+                }
+            };
+
+            const res = results[item];
+            if (res.allowed) {
+                resDiv.className = 'p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-900 space-y-1';
+                resDiv.innerHTML = `
+                    <div class="font-bold flex items-center gap-2 text-base text-emerald-800">
+                        <i class="fa-solid fa-circle-check text-emerald-600"></i> ${res.title}
+                    </div>
+                    <div class="text-xs font-semibold text-emerald-700">Statutory Reference: ${res.statute}</div>
+                    <p class="text-xs text-emerald-800 mt-1">${res.desc}</p>
+                `;
+            } else {
+                resDiv.className = 'p-4 rounded-xl bg-rose-50 border border-rose-200 text-rose-900 space-y-1';
+                resDiv.innerHTML = `
+                    <div class="font-bold flex items-center gap-2 text-base text-rose-800">
+                        <i class="fa-solid fa-circle-xmark text-rose-600"></i> ${res.title}
+                    </div>
+                    <div class="text-xs font-semibold text-rose-700">Statutory Reference: ${res.statute}</div>
+                    <p class="text-xs text-rose-800 mt-1">${res.desc}</p>
+                `;
+            }
+        }
+
+        // Initialize calculations on page load
+        window.onload = function() {
+            calculateChain();
+            calculateNetGst();
+        };
+    </script>
+</body>
+</html>
